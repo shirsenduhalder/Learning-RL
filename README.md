@@ -4,4 +4,4 @@ I used [Tensorflow](https://www.tensorflow.org/) with [OpenAI Gym](https://gym.o
 
 ### MC methods in Blackjack
 Monte Carlo methods in Reinforcement Learning are used where the dynamics and model of the environment are unknown. Hence we do not have any information regarding the transition or reward probabilities. Monte Carlo helps finding the approximate solution through lots of episodes of random sampling. There are two types of MC method: First Visit and Every Visit. Below given are the plots on a Black Jack game for First Visit and Every Visit method. Both usable and non-usable cases are considered.
-!["First Visit"](figures/First_Visit.png) ![Every Visit](figures/Every_Visit.png)
+<img src="figures/First_Visit.png" width="425"/> <img src="figures/Every_Visit.png" width="425"/> 
