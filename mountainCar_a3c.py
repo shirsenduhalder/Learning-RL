@@ -169,18 +169,18 @@ class Worker(object):
 					buffer_s, buffer_a, buffer_r = [], [], []
 
 					self.AC.pull_global()
-					s = s_
-					total_step += 1
+				s = s_
+				total_step += 1
 
-					if done:
-						if len(global_rewards) < 5:
-							global_rewards.append(ep_r)
-						else:
-							global_rewards.append(ep_r)
-							global_rewards[-1] = np.mean(global_rewards[-5:])
+				if done:
+					if len(global_rewards) < 5:
+						global_rewards.append(ep_r)
+					else:
+						global_rewards.append(ep_r)
+						global_rewards[-1] = np.mean(global_rewards[-5:])
 
-						global_episodes += 1
-						break
+					global_episodes += 1
+					break
 
 
 global_rewards = []
