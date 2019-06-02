@@ -8,3 +8,7 @@ lr_c = 0.002
 gamma = 0.90
 alpha = 0.01
 memory_size = 10000
+batch_size = 32
+
+class DDPG(object):
+	
