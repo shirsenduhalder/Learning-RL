@@ -75,13 +75,14 @@ def filter_batch(batch, percentile):
 
 if __name__=="__main__":
     env = gym.make("CartPole-v0")
+    env = gym.wrappers.Monitor(env, directory="mon", force=True)
     obs_size = env.observation_space.shape[0]
     n_actions = env.action_space.n
 
     net = Net(obs_size, HIDDEN_SIZE, n_actions)
     objective = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.01)
-    writer = SummaryWriter(log_dir="logs", comment='-cartpoleCrossEntropy')
+    writer = SummaryWriter("logs", comment='-cartpoleCrossEntropy')
 
     for iter_no, batch in enumerate(iterate_batches(env, net, BATCH_SIZE)):
         obs_v, act_v, reward_b, reward_m = filter_batch(batch, PERCENTILE)
