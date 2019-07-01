@@ -31,7 +31,7 @@ class StocksEnv(gym.Env):
         self.observation_space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=self._state.shape, dtype=np.float32)
 
         self.random_ofs_on_reset = random_ofs_on_reset
-        self._seed()
+        self.seed()
     
     def reset(self):
         self._instrument = self.np_random.choice(list(self._prices.keys()))
@@ -50,7 +50,7 @@ class StocksEnv(gym.Env):
         action = Actions(action_idx)
         reward, done = self._state.step(action)
         obs = self._state.encode()
-        info = {"instrument": self._instrument, "offset":self._state.offset}
+        info = {"instrument": self._instrument, "offset":self._state._offset}
 
         return obs, reward, done, info
     
